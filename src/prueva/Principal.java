@@ -18,12 +18,14 @@ public class Principal {
 //        System.out.println(product.getModelo());
 //        //session.save(product);
 //        session.getTransaction().commit();
-numerosPares();
+        numerosPares();
     }
 
     public static void numerosPares() {
         for (int numero = 1; numero <= 100; numero++) {
-            if (numero % 2 == 0)System.out.print(numero + ",");   
+            if (numero % 2 == 0) {
+                System.out.print(numero + ",");
+            }
         }
     }
 
