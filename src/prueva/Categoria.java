@@ -20,7 +20,7 @@ public class Categoria implements Serializable {
     private int id_categoria;
     private String nombre;
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private List<Producto> employees = new ArrayList<Producto>();
+    private List<Producto> productos = new ArrayList<Producto>();
 
     public Categoria() {
     }
