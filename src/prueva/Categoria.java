@@ -19,7 +19,7 @@ public class Categoria implements Serializable {
     @GeneratedValue(strategy = IDENTITY)
     private int id_categoria;
     private String nombre;
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<Producto> employees = new ArrayList<Producto>();
 
     public Categoria() {
