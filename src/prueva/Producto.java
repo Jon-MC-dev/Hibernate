@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,7 +16,7 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy=IDENTITY)
     private int id_producto;
-    private int id_categoria;
+    //private int id_categoria;
     private int id_marca;
     private String modelo;
     private int existencias;
@@ -24,13 +25,16 @@ public class Producto implements Serializable {
     private String detalles_adicionales;
     
     @ManyToOne
-    private Categoria categoria;
+    @JoinColumn(name="id_categoria")
+    public Categoria categoria;
 
     public Producto() {
     }
 
     public Producto(int id_categoria, int id_marca, String modelo, int existencias, String descripcion, String codigo_barras, String detalles_adicionales) {
-        this.id_categoria = id_categoria;
+        //this.categoria.setId_categoria(id_categoria); = id_categoria;
+        this.categoria=new Categoria();
+        this.categoria.setId_categoria(id_categoria);
         this.id_marca = id_marca;
         this.modelo = modelo;
         this.existencias = existencias;
@@ -47,13 +51,13 @@ public class Producto implements Serializable {
         this.id_producto = id_producto;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
-    }
+//    public int getId_categoria() {
+//        return id_categoria;
+//    }
+//
+//    public void setId_categoria(int id_categoria) {
+//        this.id_categoria = id_categoria;
+//    }
 
     public int getId_marca() {
         return id_marca;
